@@ -8,6 +8,14 @@ void swap(int *a, int *b) {
     *b = temp;
 }
 
+// NOTE: In c language, it is impossible to get the length of array
+// after you pass the array into a function.
+// For example,
+// void sort(int array) {
+//   int i, j;
+//   size_t len = sizeof(array) / sizeof(int);
+//   the value of len would not fit our expectation
+// }
 void sort(int array[], size_t len) {
     int i, j;
     printf("len : %zu", len);
