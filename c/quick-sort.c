@@ -9,7 +9,7 @@ void SWAP(int *a, int *b) {
 int partition(int array[], int head, int end) {
     int i = head - 1;
     for (int j = head; j < end; j ++ ) {
-        if (array[j] <= array[end]) {
+        if (array[j] >= array[end]) {
             i++;
             SWAP(&array[j], &array[i]);
         }

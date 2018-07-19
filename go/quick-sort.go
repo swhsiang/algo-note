@@ -79,9 +79,51 @@ func quickSort2(sortArray []int, left, right int) {
     }
 }
 
+func quickSort3(arr []int, start, end int) {
+    if start < end {
+        pa := pa3(arr, start, end)
+        quickSort3(arr, start, pa)
+        quickSort3(arr, pa + 1, end)
+    }
+}
+
+func pa3(arr []int, start, end int) int {
+    pivot := arr[start]
+    i := start - 1
+    j := end + 1
+
+    for {
+        for {
+            i++
+            if arr[i] >= pivot {
+                break
+            }
+        }
+
+        for {
+            j--
+            if arr[j] <= pivot {
+                break
+            }
+        }
+
+        if i >= j {
+            return j
+        }
+
+        arr[i], arr[j] = arr[j], arr[i]
+    }
+}
+
 func QuickSort2(values []int){
     quickSort2(values, 0, len(values) - 1)
 }
+
+
+func QuickSort3(values []int){
+    quickSort3(values, 0, len(values) - 1)
+}
+
 
 func printArr(arr []int) {
     for _, i := range arr {
@@ -94,6 +136,6 @@ func main() {
     var testArr []int = []int{1, 21, 1, 52, 51, 66, 3, 4, 3,95}
     printArr(testArr)
     //Sort(testArr)
-    QuickSort2(testArr)
+    QuickSort3(testArr)
     printArr(testArr)
 }
